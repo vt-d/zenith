@@ -36,34 +36,32 @@ Zenith provides the following built-in types:
 Zenith allows creating custom types:
 
 - **Enumerations:**
-
-zenith
+``zenith
 enum Color {
     Red,
     Green,
     Blue,
 }
-
+``
 
 
 - **Structures:**
-
-zenith
+```zenith
 struct Point {
     x: i32,
     y: i32,
 }
-
+```
 
 
 - **Unions:**
-
-zenith
+- 
+```zenith
 union Data {
     int_value: i32,
     float_value: f32,
 }
-
+```
 
 
 ---
@@ -73,19 +71,19 @@ union Data {
 ### Declarations
 Variables are declared using the var keyword.
 
-zenith
+```zenith
 var x: i32 = 10;
 var y = 20; // Type inferred as i32
-
+```
 
 
 ### Mutability
 By default, variables are immutable. Use mut to make them mutable.
 
-zenith
+```zenith
 var mut counter: i32 = 0;
 counter = counter + 1;
-
+```
 
 
 ---
@@ -94,10 +92,10 @@ counter = counter + 1;
 
 Constants are declared using the const keyword. They must be initialized
  at compile time.
-
-zenith
+ 
+```zenith
 const PI: f64 = 3.14159;
-
+```
 
 
 ---
@@ -106,31 +104,31 @@ const PI: f64 = 3.14159;
 
 Functions are declared using the fn keyword.
 
-zenith
+```zenith
 fn add(a: i32, b: i32) -> i32 {
     return a + b;
 }
-
+```
 
 
 ### Void Functions
 Void functions do not return a value.
 
-zenith
+```zenith
 fn log_message(message: str) {
     // Implementation
 }
-
+```
 
 
 ### Inline Functions
 Functions can be inlined using the inline keyword.
 
-zenith
+```zenith
 inline fn square(x: i32) -> i32 {
     return x * x;
 }
-
+```
 
 
 ---
@@ -139,7 +137,7 @@ inline fn square(x: i32) -> i32 {
 
 ### If-Else
 
-zenith
+```zenith
 if condition {
     // Code
 } else if another_condition {
@@ -147,49 +145,49 @@ if condition {
 } else {
     // Code
 }
-
+```
 
 
 ### Loops
 
 - **While Loop:**
 
-zenith
+```zenith
 while condition {
     // Code
 }
+```
 
 
 
 - **For Loop:**
 
-zenith
+```zenith
 for i in 0..10 {
     // Code
 }
-
+```
 
 
 - **Infinite Loop:**
 
-zenith
+```zenith
 loop {
     // Code
 }
-
-
+```
 
 ### Match
 
 A match statement is used for pattern matching.
 
-zenith
+```zenith
 match value {
     1 => println("One"),
     2 => println("Two"),
     _ => println("Other"),
 }
-
+```
 
 
 ---
@@ -200,18 +198,18 @@ match value {
 
 Pointers are explicitly defined using the * syntax.
 
-zenith
+```zenith
 var ptr: *i32 = &value;
-
+```
 
 
 ### References
 
 References are created using the & operator.
 
-zenith
+```zenith
 var ref: &i32 = &value;
-
+```
 
 
 ---
@@ -221,23 +219,23 @@ var ref: &i32 = &value;
 ### Result Type
 Zenith uses a Result type for error handling.
 
-zenith
+```zenith
 fn divide(a: i32, b: i32) -> Result<i32, str> {
     if b == 0 {
         return Err("Division by zero");
     }
     return Ok(a / b);
 }
-
+```
 
 
 ### Panic
 
 The panic function aborts execution.
 
-zenith
+```zenith
 panic("Something went wrong");
-
+```
 
 
 ---
@@ -246,13 +244,13 @@ panic("Something went wrong");
 
 Modules are declared using the mod keyword.
 
-zenith
+```zenith
 mod math {
     fn add(a: i32, b: i32) -> i32 {
         return a + b;
     }
 }
-
+```
 
 
 ---
@@ -261,12 +259,12 @@ mod math {
 
 Attributes provide metadata and are declared using #[...] syntax.
 
-zenith
+```zenith
 #[inline]
 fn fast_function() {
     // Code
 }
-
+```
 
 
 ---
@@ -276,14 +274,14 @@ fn fast_function() {
 Functions, structs, and enums can be parameterized with types using 
 generics.
 
-zenith
+```zenith
 fn max<T: Ord>(a: T, b: T) -> T {
     if a > b {
         return a;
     }
     return b;
 }
-
+```
 
 
 ---
@@ -313,43 +311,43 @@ time. Macros are defined using the macro keyword.
 A macro definition starts with the macro keyword, followed by the macro 
 name, parameters, and a block of code.
 
-zenith
+```zenith
 macro repeat(n: i32, code: str) {
     for i in 0..n {
         code;
     }
 }
-
+```
 
 
 ### Macro Invocation
 Macros are invoked with the @ symbol.
 
-zenith
+```zenith
 @repeat(3, println("Hello, World!"));
-
+```
 
 
 ### Inline Macros
 Macros can also be defined inline using the #[] syntax for small 
 snippets.
 
-zenith
+```zenith
 #[repeat(n: i32, code: str) => for i in 0..n { code; }]
 @repeat(5, println("Inline macro example"));
-
+```
 
 
 ### Compile-Time Constants
 Macros can compute constants at compile time.
 
-zenith
+```zenith
 macro square_const(x: i32) -> i32 {
     return x * x;
 }
 
 const SQUARE_4: i32 = @square_const(4);
-
+```
 
 
 ---
