@@ -5,9 +5,9 @@ This is a simple toy language im creating for the sake of learning how to make a
 Things to be done:
 - [x] AST
 - [x] Lexer
-- [] Parser
-- [] JIT
-- [] Compilation
+- [ ] Parser
+- [ ] JIT
+- [ ] Compilation
 
 Things that are checked means that the tests have passed. Beware that this is not meant for production use.
 There are no proper integration tests.
